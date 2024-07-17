@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:esb="http://esb.ewallet.lpb.com"
+                  xmlns:xsd="http://request.esb.ewallet.lpb.com/xsd"
+                  xmlns:xsd1="http://common.entity.ewallet.lpb.com/xsd"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://esb.ewallet.lpb.com ">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <esb:getQRShopInfo>
+            <!--Optional:-->
+            <esb:request>
+                <!--Optional:-->
+                <xsd:header>
+                    <!--Optional:-->
+                    <xsd1:language>%s</xsd1:language>
+                    <!--Optional:-->
+                    <xsd1:channelCode>%s</xsd1:channelCode>
+                    <!--Optional:-->
+                    <xsd1:clientTime>%s</xsd1:clientTime>
+                    <!--Optional:-->
+                    <xsd1:requestId>%s</xsd1:requestId>
+                    <!--Optional:-->
+                    <xsd1:transTime>%s</xsd1:transTime>
+                </xsd:header>
+                <!--Optional:-->
+                <xsd:qrShopRefAccount>?</xsd:qrShopRefAccount>
+            </esb:request>
+        </esb:getQRShopInfo>
+    </soapenv:Body>
+</soapenv:Envelope>

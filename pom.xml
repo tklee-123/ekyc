@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -13,70 +13,178 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lv24-service</name>
 	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
+	<url>http://example.com/lv24-service</url>
+<!--	<licenses>-->
+<!--		<license>-->
+<!--			<name>The Apache License, Version 2.0</name>-->
+<!--			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
+<!--		</license>-->
+<!--	</licenses>-->
 	<developers>
-		<developer/>
+		<developer>
+			<id>developer-id</id>
+			<name>Developer Name</name>
+			<email>developer@example.com</email>
+		</developer>
 	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+<!--	<scm>-->
+<!--		<connection>scm:git:git://example.com/lv24-service.git</connection>-->
+<!--		<developerConnection>scm:git:ssh://example.com/lv24-service.git</developerConnection>-->
+<!--		<tag>HEAD</tag>-->
+<!--		<url>http://example.com/lv24-service</url>-->
+<!--	</scm>-->
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.kafka</groupId>-->
+<!--			<artifactId>spring-kafka</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-devtools</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--			<optional>true</optional>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.kafka</groupId>-->
+<!--			<artifactId>spring-kafka-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.9.2</version> <!-- Replace with the latest version -->
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
-	</dependencies>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.core</groupId>-->
+<!--			<artifactId>jackson-databind</artifactId>-->
+<!--			<version>2.17.2</version>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons.io/commonsIO -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client-gson</artifactId>
+			<version>1.23.0</version>
+		</dependency>
 
+
+	</dependencies>
+<!--	<repositories>-->
+<!--		<repository>-->
+<!--			<id>com.springsource.repository.bundles.release</id>-->
+<!--			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>-->
+<!--			<url>https://repository.springsource.com/maven/bundles/release</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>com.springsource.repository.bundles.external</id>-->
+<!--			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>-->
+<!--			<url>https://repository.springsource.com/maven/bundles/external</url>-->
+<!--		</repository>-->
+<!--		<repository>-->
+<!--			<id>central</id>-->
+<!--			<name>Maven Central</name>-->
+<!--			<url>https://repo.maven.apache.org/maven2</url>-->
+<!--		</repository>-->
+<!--	</repositories>-->
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*</include>
+					<include>file/*</include>
+					<include>file/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${main.baseDir}/shared-resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>*</include>
+					<include>static/*</include>
+
+				</includes>
+			</resource>
+		</resources>
+
 		<plugins>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<configuration>
+					<failOnNoGitDirectory>false</failOnNoGitDirectory>
+					<offline>true</offline>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<classifier>exec</classifier>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>spring-boot</classifier>
+							<!--suppress UnresolvedMavenProperty -->
+							<mainClass>${service.class.main}</mainClass>
+							<finalName>deploy-${project.artifactId}-${project.version}</finalName>
+							<outputDirectory>${esb.parent.dist}/${project.artifactId}</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+								<java.version>${java.version}</java.version>
+								<owner.user>${user.name}</owner.user>
+								<owner.dir>${user.dir}</owner.dir>
+							</additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

@@ -1,0 +1,94 @@
+server:
+  port: 14560
+
+spring:
+  application:
+    name: '@project.artifactId@'
+  http:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+  redis:
+    host: 10.37.11.78
+    port: 6379
+    password: password123
+    timeout: 10000
+    poolSize: 20
+    minimumIdleSize: 5
+  max-thread: 10
+
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+    password: MbB!2023Sp
+    url: jdbc:oracle:thin:@10.37.11.199:1539/ldsdb
+    username: ttsp
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        order_inserts: true
+        order_updates: true
+        generate_statistics: true
+        jdbc:
+          batch_size: 100
+
+  security:
+    enabled: false
+
+info:
+  run:
+    dir: ${user.dir}
+    user: ${user.name}
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+        web: DEBUG
+        web.HttpLogging: INFO
+        web.filter.CommonsRequestLoggingFilter: DEBUG
+        orm.jpa: DEBUG
+        transaction: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
+kafka:
+  consumer:
+    topicSendLV24: LV24.SEND_MESSAGE_LV24
+    groupId: LV24.SEND_MESSAGE_LV24.GROUP
+  timeout: 20
+
+lv24:
+  noti: http://10.36.126.111:9082/transaction/services/ESBService?wsdl
+security:
+  ignored: /**
+  basic:
+    enabled: false
+file:
+  sms:
+    pattern: (?:\[M\])([\s\S]*)(?:\[\/M\])
+    pattern-sum: (?:\[S\])([\s\S]*)(?:\[\/S\])
+    prefix: lv24-service/data-xml-base/
+    xml:
+      lv24: lv24.xml
